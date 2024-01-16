@@ -1,0 +1,12 @@
+name: Auto release
+on:
+  push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+      - name: Release on npm version change
+        uses: ScaleXY/ga01-release-action@master
+        id: release

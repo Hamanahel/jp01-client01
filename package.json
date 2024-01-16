@@ -1,0 +1,26 @@
+{
+    "name": "@hamanahel/client",
+    "version": "v0.1.2",
+    "description": "Wrapper for Hamanahel API",
+    "main": "release/lib.js",
+    "scripts": {
+        "clean_build": "npm i && tsc --build --clean && tsc --build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Hamanahel/jp01-client.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Hamanahel/jp01-client/issues"
+    },
+    "homepage": "https://github.com/Hamanahel/jp01-client#readme",
+    "dependencies": {
+        "@types/node": "^20.11.1",
+        "@types/uuid": "^9.0.2",
+        "axios": "^1.4.0",
+        "typescript": "^5.3.3"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": false,
+        "types": [
+            "node"
+        ],
+        "moduleResolution": "node",
+        "outFile": "release/lib.js",
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        // "node_modules"
+    ]
+}
