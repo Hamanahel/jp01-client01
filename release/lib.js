@@ -34,23 +34,41 @@ define("lib/Client", ["require", "exports", "axios"], function (require, exports
             });
         }
         Client.prototype.get_request = function (path) {
-            return this.axios_client.get(path)
-                .then(function (response) { console.log(response.data); })
-                .catch(function (error) { console.log(error.response.data.message); });
+            return this.axios_client.get(path);
         };
         Client.prototype.post_request = function (path, $data) {
-            return this.axios_client.post(path, $data)
-                .then(function (response) { console.log(response.data); })
-                .catch(function (error) { console.log(error.response.data.message); });
+            return this.axios_client.post(path, $data);
         };
         Client.prototype.delete_request = function (path) {
-            return this.axios_client.delete(path)
-                .then(function (response) { console.log(response.data); })
-                .catch(function (error) { console.log(error.response.data.message); });
+            return this.axios_client.delete(path);
+            // .then((response: any) => { console.log(response.data) })
+            // .catch((error: any) => { console.log(error.response.data.message) });
         };
         return Client;
     }());
     exports.Client = Client;
+});
+define("services/Church", ["require", "exports", "axios"], function (require, exports, axios_2) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Church = void 0;
+    var Church = /** @class */ (function () {
+        function Church() {
+            this.configBaseURL = 'https://r2-pub.hamanahel.in';
+            this.axios_client = axios_2.default.create({
+                baseURL: this.configBaseURL,
+                timeout: 15000,
+            });
+        }
+        Church.prototype.getChurches = function () {
+            return this.axios_client.get('/config/church/index.json');
+        };
+        Church.prototype.getChurch = function (uuid) {
+            return this.axios_client.get('/config/church/' + uuid + '.json');
+        };
+        return Church;
+    }());
+    exports.Church = Church;
 });
 define("services/Member", ["require", "exports", "lib/Client"], function (require, exports, Client_1) {
     "use strict";
@@ -72,6 +90,9 @@ define("services/Member", ["require", "exports", "lib/Client"], function (requir
         };
         Member.prototype.get2FAPayload = function () {
             return this.get_request('/api/v1/member/2fa_t01');
+        };
+        Member.prototype.deleteSession = function () {
+            return this.delete_request('/api/v1/member/session');
         };
         return Member;
     }(Client_1.Client));

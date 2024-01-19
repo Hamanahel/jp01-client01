@@ -14,20 +14,14 @@ export class Client {
     }
 
     get_request(path: String) {
-        return this.axios_client.get(path)
-            .then((response: any) => { console.log(response.data) })
-            .catch((error: any) => { console.log(error.response.data.message) });
+        return this.axios_client.get(path);
     }
-
     post_request(path: String, $data: any) {
-        return this.axios_client.post(path, $data)
-            .then((response: any) => { console.log(response.data) })
-            .catch((error: any) => { console.log(error.response.data.message) });
+        return this.axios_client.post(path, $data);
     }
-
     delete_request(path: String) {
-        return this.axios_client.delete(path)
-            .then((response: any) => { console.log(response.data) })
-            .catch((error: any) => { console.log(error.response.data.message) });
+        return this.axios_client.delete(path);
+        // .then((response: any) => { console.log(response.data) })
+        // .catch((error: any) => { console.log(error.response.data.message) });
     }
 }

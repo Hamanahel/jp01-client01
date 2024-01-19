@@ -5,6 +5,7 @@
     "main": "release/lib.js",
     "scripts": {
         "clean_build": "npm i && tsc --build --clean && tsc --build",
+        "test_app": "npm i && tsc test/app.ts && node test/app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {

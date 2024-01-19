@@ -16,4 +16,7 @@ export class Member extends Client {
     get2FAPayload() {
         return this.get_request('/api/v1/member/2fa_t01');
     }
+    deleteSession() {
+        return this.delete_request('/api/v1/member/session');
+    }
 }

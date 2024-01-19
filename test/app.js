@@ -1,17 +1,15 @@
-import { Member, Church } from '../release/lib.js';
-
-const church = new Church();
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var lib_js_1 = require("../release/lib.js");
+var church = new lib_js_1.Church();
 church.getChurches()
-    .then((response: any) => {
-        response.data.json.forEach((church: any) => {
-            console.log(church);
-        });
+    .then(function (response) {
+    response.data.json.forEach(function (church) {
+        console.log(church);
     });
-
+});
 // const tenantBaseURL = 'https://tenant-00002-efd265765cbc.hamanahel.test';
 // const member = new Member(tenantBaseURL, '5c5b7877-9cdf-4d3f-8043-e4bb85b60858');
-
 // member.getMe()
 //     .then(() => {
 //         member.postSetMember("abey2397")
