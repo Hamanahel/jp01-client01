@@ -12,5 +12,5 @@ jobs:
         id: release
         env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        inputs:
+        input:
           path: /home/runner/work/jp01-client/jp01-client/package.json
