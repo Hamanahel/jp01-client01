@@ -9,5 +9,5 @@ export {
 
 export default {
     ChurchClient: () => new Church(),
-    MemberClient: (tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) => new Member(tenantBaseURL, version_uuid, sessionToken) => new Member(tenantBaseURL, version_uuid, sessionToken),
+    MemberClient: (tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) => new Member(tenantBaseURL, version_uuid, sessionToken),
 }
