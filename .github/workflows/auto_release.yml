@@ -11,4 +11,4 @@ jobs:
         uses: ScaleXY/ga01-release-action@master
         id: release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.OVERRIDE_GITHUB_TOKEN }}
