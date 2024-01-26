@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export class Church {
+export default class Church {
     axios_client: any;
 
     configBaseURL = 'https://r2-pub.hamanahel.in';

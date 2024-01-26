@@ -1,7 +1,7 @@
 import { UUID } from "crypto";
 import { Client } from "../lib/Client";
 
-export class Member extends Client {
+export default class Member extends Client {
     constructor(tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) {
         super(tenantBaseURL, version_uuid, sessionToken);
     }
