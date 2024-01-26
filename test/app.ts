@@ -1,6 +1,6 @@
 import { randomUUID } from 'crypto';
-import { Church } from '../release/services/Church';
-import { Member } from '../release/services/Member';
+import Church from '../release/Services/Church';
+import Member from '../release/Services/Member';
 
 const church_client = new Church();
 
@@ -25,7 +25,7 @@ church_client.getChurches()
                         member_client.getMe()
                             .then((response: any) => {
                                 console.log(response.data);
-                                member_client.postAuthenticate(test_member_username, test_member_password, 760076)
+                                member_client.Authenticate(test_member_username, test_member_password, "760076")
                                     .then((response: any) => {
                                         console.log(response.data);
                                         member_client.getMe()

@@ -1,6 +1,6 @@
 {
     "name": "@hamanahel/client",
-    "version": "v0.2.8",
+    "version": "v0.2.9",
     "description": "Wrapper for Hamanahel API",
     "main": "release/index.js",
     "types": "release/index.d.ts",
@@ -8,7 +8,7 @@
         "clean_build": "npm i && tsc --build --clean && tsc --build",
         "test_app": "npm i && tsc test/app.ts && node test/app.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "ncc_build": "ncc build src/index.ts --minify --out release"
+        "ncc_build": "ncc build src/index.ts --minify --out release --no-cache --source-map --debug"
     },
     "repository": {
         "type": "git",
