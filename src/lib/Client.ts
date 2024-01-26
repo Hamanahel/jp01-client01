@@ -2,16 +2,27 @@ import axios from 'axios';
 import { UUID } from 'crypto';
 
 export class Client {
-    axios_client: any;
+    protected axios_client: any;
 
-    constructor(tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) {
+    constructor({
+        tenant_base_url,
+        version_uuid,
+        session_uuid,
+        website_uuid,
+    }: {
+        tenant_base_url: string,
+        version_uuid: UUID,
+        session_uuid: UUID,
+        website_uuid?: UUID
+    }) {
         this.axios_client = axios.create({
-            baseURL: tenantBaseURL,
+            baseURL: tenant_base_url,
             timeout: 15000,
             headers: {
-                'Authorization': "Bearer " + sessionToken,
+                'Authorization': "Bearer " + session_uuid,
                 'API-Client-Version-UUID': version_uuid,
-            }
+                ...(website_uuid ? { 'API-Client-Website-UUID': website_uuid } : {}),
+            },
         });
     }
 

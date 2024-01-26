@@ -1,23 +1,27 @@
 import { UUID } from "crypto";
 import { Client } from "../lib/Client";
 
+const v1_prefix = '/api/v1/member';
+
 export default class Member extends Client {
-    constructor(tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) {
-        super(tenantBaseURL, version_uuid, sessionToken);
+
+    constructor(tenant_base_url: string, version_uuid: UUID, session_uuid: UUID) {
+        super({ tenant_base_url, version_uuid, session_uuid });
     }
+
     getMe() {
-        return this.get_request('/api/v1/member/me');
+        return this.get_request(v1_prefix + '/me');
     }
-    postAuthenticate(username: string, password: string, otp_string?: string) {
-        return this.post_request('/api/v1/member/authenticate', { username, password, otp: otp_string ?? "" });
+    Authenticate(username: string, password: string, otp_string?: string) {
+        return this.post_request(v1_prefix + '/authenticate', { username, password, otp: otp_string ?? "" });
     }
-    post2FAOptions(username: string, password: string) {
-        return this.post_request('/api/v1/member/2fa/options', { username, password });
+    Fetch2FAOptions(username: string, password: string) {
+        return this.post_request(v1_prefix + '/2fa/options', { username, password });
     }
-    postInitiate2FA(username: string, password: string, mode: string) {
-        return this.post_request('/api/v1/member/2fa/initiate', { username, password, mode });
+    Initiate2FA(username: string, password: string, mode: string) {
+        return this.post_request(v1_prefix + '/2fa/initiate', { username, password, mode });
     }
     deleteSession() {
-        return this.delete_request('/api/v1/member/session');
+        return this.delete_request(v1_prefix + '/session');
     }
 }
