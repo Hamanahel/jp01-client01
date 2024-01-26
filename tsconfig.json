@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "amd",
+        "module": "commonjs",
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
@@ -10,7 +10,8 @@
             "node"
         ],
         "moduleResolution": "node",
-        "outFile": "release/lib.js",
+        // "outFile": "release/lib.js",
+        "outDir": "release/",
     },
     "include": [
         "src/**/*"

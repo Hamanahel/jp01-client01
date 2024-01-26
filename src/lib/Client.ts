@@ -1,14 +1,16 @@
 import axios from 'axios';
+import { UUID } from 'crypto';
 
 export class Client {
     axios_client: any;
 
-    constructor(tenantBaseURL: string, sessionToken: string) {
+    constructor(tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) {
         this.axios_client = axios.create({
             baseURL: tenantBaseURL,
             timeout: 15000,
             headers: {
-                'Authorization': "Bearer " + sessionToken
+                'Authorization': "Bearer " + sessionToken,
+                'API-Client-Version-UUID': version_uuid,
             }
         });
     }
@@ -21,7 +23,9 @@ export class Client {
     }
     delete_request(path: String) {
         return this.axios_client.delete(path);
-        // .then((response: any) => { console.log(response.data) })
-        // .catch((error: any) => { console.log(error.response.data.message) });
     }
 }
+
+
+// .then((response: any) => { console.log(response.data) })
+// .catch((error: any) => { console.log(error.response.data.message) });

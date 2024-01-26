@@ -1,20 +1,21 @@
+import { UUID } from "crypto";
 import { Client } from "../lib/Client";
 
 export class Member extends Client {
-    constructor(tenantBaseURL: string, sessionToken: string) {
-        super(tenantBaseURL, sessionToken);
+    constructor(tenantBaseURL: string, version_uuid: UUID, sessionToken: UUID) {
+        super(tenantBaseURL, version_uuid, sessionToken);
     }
     getMe() {
         return this.get_request('/api/v1/member/me');
     }
-    postSetMember(username: string) {
-        return this.post_request('/api/v1/member/set_member', { username });
+    postAuthenticate(username: string, password: string, otp_string?: string) {
+        return this.post_request('/api/v1/member/authenticate', { username, password, otp: otp_string ?? "" });
     }
-    postVerifyPassword(password: string) {
-        return this.post_request('/api/v1/member/verify_password', { password });
+    post2FAOptions(username: string, password: string) {
+        return this.post_request('/api/v1/member/2fa/options', { username, password });
     }
-    get2FAPayload() {
-        return this.get_request('/api/v1/member/2fa_t01');
+    postInitiate2FA(username: string, password: string, mode: string) {
+        return this.post_request('/api/v1/member/2fa/initiate', { username, password, mode });
     }
     deleteSession() {
         return this.delete_request('/api/v1/member/session');
