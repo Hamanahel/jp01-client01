@@ -10,4 +10,7 @@ jobs:
       - name: Release on npm version change
         uses: ScaleXY/ga01-release-action@master
         id: release
-        path: /home/runner/work/jp01-client/jp01-client/package.json
+        env:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        inputs:
+          path: /home/runner/work/jp01-client/jp01-client/package.json
