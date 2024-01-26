@@ -1,8 +1,9 @@
 {
     "name": "@hamanahel/client",
-    "version": "v0.2.6",
+    "version": "v0.2.7",
     "description": "Wrapper for Hamanahel API",
-    "main": "release/lib.js",
+    "main": "release/index.js",
+    "types": "release/index.d.ts",
     "scripts": {
         "clean_build": "npm i && tsc --build --clean && tsc --build",
         "test_app": "npm i && tsc test/app.ts && node test/app.js",
