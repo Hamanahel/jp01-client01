@@ -26,8 +26,8 @@ export class Client {
         });
     }
 
-    get_request(path: String) {
-        return this.axios_client.get(path);
+    get_request(path: String, params: any = {}) {
+        return this.axios_client.get(path, { params });
     }
     post_request(path: String, $data: any) {
         return this.axios_client.post(path, $data);

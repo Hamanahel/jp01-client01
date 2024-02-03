@@ -3,9 +3,10 @@ import { randomUUID } from 'crypto';
 // import Member from '../release/Services/Member';
 
 import {
-    Church,
-    Member,
-    Variable
+	Church,
+	Member,
+	Menu,
+	Variable
 } from '../release/index';
 
 const church_client = new Church();
@@ -21,33 +22,43 @@ const test_member_password = 'member01';
 var base_path = '';
 
 // church_client.getChurches()
-//     .then((response: any) => {
-//         response.data.forEach((church: any) => {
-//             if (church.uuid == test_church_uuid) {
-//                 church_client.getChurch(church.uuid)
-//                     .then((response: any) => {
-//                         console.log(response.data);
-//                         base_path = response.data.base_path;
-//                         const member_client = new Member(base_path, test_api_client_version_uuid, test_session_uuid);
-//                         member_client.getMe()
-//                             .then((response: any) => {
-//                                 console.log(response.data);
-//                                 member_client.Authenticate(test_member_username, test_member_password, "760076")
-//                                     .then((response: any) => {
-//                                         console.log(response.data);
-//                                         member_client.getMe()
-//                                             .then((response: any) => {
-//                                                 console.log(response.data);
-//                                             });
-//                                     });
-//                             });
-//                     });
-//             }
-//         });
-//     });
+// 	.then((response: any) => {
+// 		response.data.forEach((church: any) => {
+// 			if (church.uuid == test_church_uuid) {
+// 		}
+// 	});
+// });
 
-const variable_client = new Variable("https://tenant-00002-efd265765cbc.hamanahel.in", test_api_client_version_uuid, test_session_uuid);
+// church_client.getChurch(test_church_uuid)
+// 	.then((response: any) => {
+// 		console.log(response.data);
+// 		base_path = response.data.base_path;
+// 		const member_client = new Member(base_path, test_api_client_version_uuid, test_session_uuid);
+// 		member_client.getMe()
+// 			.then((response: any) => {
+// 				console.log(response.data);
+// 				member_client.Authenticate(test_member_username, test_member_password, "760076")
+// 					.then((response: any) => {
+// 						console.log(response.data);
+// 						member_client.getMe()
+// 							.then((response: any) => {
+// 								console.log(response.data);
+// 							});
+// 					});
+// 			});
+// 	});
 
-console.log(variable_client.getBoolean('enforce_mobile_2fa_config_flag'));
+church_client.getChurch(test_church_uuid)
+	.then((response: any) => {
+		console.log(response.data);
+		base_path = response.data.base_path;
+		const menu_client = new Menu(base_path, test_api_client_version_uuid, test_session_uuid);
+		menu_client.getSlug('main-menu')
+			.then((response: any) => {
+				console.log(JSON.stringify(response.data, null, 2));
+			});
+	});
 
+// const variable_client = new Variable("https://tenant-00002-efd265765cbc.hamanahel.in", test_api_client_version_uuid, test_session_uuid);
+// console.log(variable_client.getBoolean('enforce_mobile_2fa_config_flag'));
 // console.log(data)
