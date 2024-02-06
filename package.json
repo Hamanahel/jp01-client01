@@ -1,30 +1,34 @@
 {
-    "name": "@hamanahel/client",
-    "version": "v0.3.2",
-    "description": "Wrapper for Hamanahel API",
-    "main": "release/index.js",
-    "types": "release/index.d.ts",
-    "scripts": {
-        "clean_build": "npm i && tsc --build --clean && tsc --build",
-        "test_app": "npm i && tsc test/app.ts && node test/app.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "ncc_build": "ncc build src/index.ts --minify --out release --no-cache --source-map --debug"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Hamanahel/jp01-client.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Hamanahel/jp01-client/issues"
-    },
-    "homepage": "https://github.com/Hamanahel/jp01-client#readme",
-    "dependencies": {
-        "@types/node": "^20.11.1",
-        "@types/uuid": "^9.0.2",
-        "@vercel/ncc": "^0.38.1",
-        "axios": "^1.4.0",
-        "typescript": "^5.3.3"
-    }
+	"name": "@hamanahel/client",
+	"version": "v0.3.3",
+	"description": "Wrapper for Hamanahel API",
+	"main": "release/index.js",
+	"types": "release/index.d.ts",
+	"scripts": {
+		"clean_build": "npm i && tsc --build --clean && tsc --build",
+		"test_app": "npm i && tsc test/app.ts && node test/app.js",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"ncc_build": "ncc build src/index.ts --minify --out release --no-cache --source-map --debug"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Hamanahel/jp01-client.git"
+	},
+	"author": {
+		"name": "Athul Raj",
+		"email": "athul@scalexy.com",
+		"url": "https://athulraj.com/"
+	},
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Hamanahel/jp01-client/issues"
+	},
+	"homepage": "https://github.com/Hamanahel/jp01-client#readme",
+	"dependencies": {
+		"@types/node": "^20.11.1",
+		"@types/uuid": "^9.0.2",
+		"@vercel/ncc": "^0.38.1",
+		"axios": "^1.4.0",
+		"typescript": "^5.3.3"
+	}
 }
