@@ -1,6 +1,6 @@
 {
 	"name": "@hamanahel/client",
-	"version": "v0.3.4",
+	"version": "v0.3.5",
 	"description": "Wrapper for Hamanahel API",
 	"main": "release/index.js",
 	"types": "release/index.d.ts",
