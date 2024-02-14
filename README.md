@@ -35,3 +35,29 @@ const variable_client = new hm_client.Variable();
 ```
 This is a first attempt. There will be breaking changes till v1.0.0.
 ```
+
+##Methods
+```
+- Church
+- - getChurches()
+- - getChurch(uuid: string)
+- Auth
+- - GetBypassToken()
+- - Authenticate(username: string, password: string, otp_string?: string)
+- - Fetch2FAOptions(username: string, password: string)
+- - Initiate2FA(username: string, password: string, mode: string)
+- - deleteSession()
+- Content
+- - getPosts(page: number = 1, limit: number = 10)
+- - getPost(slug: string)
+- - getPage(slug: string)
+- Member
+- - getMe()
+- Menu
+- - getAll() {
+- - getSlug(slug: string)
+- Variable
+- - getBoolean(key: string): any
+- - getString(key: string): string
+- - getInteger(key: string): number
+```
