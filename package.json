@@ -1,6 +1,6 @@
 {
 	"name": "@hamanahel/client",
-	"version": "v0.3.5",
+	"version": "v0.3.6",
 	"description": "Wrapper for Hamanahel API",
 	"main": "release/index.js",
 	"types": "release/index.d.ts",
@@ -25,10 +25,12 @@
 	},
 	"homepage": "https://github.com/Hamanahel/jp01-client#readme",
 	"dependencies": {
+		"axios": "^1.4.0"
+	},
+	"devDependencies": {
 		"@types/node": "^20.11.1",
 		"@types/uuid": "^9.0.2",
 		"@vercel/ncc": "^0.38.1",
-		"axios": "^1.4.0",
 		"typescript": "^5.3.3"
 	}
 }
